@@ -1,0 +1,74 @@
+[
+  {
+    "id": "c1",
+    "title": "Fundamentos de Manutenção Industrial",
+    "instructor": "João da Silva",
+    "level": "Iniciante",
+    "duration": 95,
+    "price": 0,
+    "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    "youtubeId": "2Vv-BfVoq4g",
+    "description": "Entenda os principais conceitos de manutenção preventiva e corretiva aplicados em ambientes industriais.",
+    "progress": 0
+  },
+  {
+    "id": "c2",
+    "title": "Manutenção de Motores Elétricos",
+    "instructor": "Maria Santos",
+    "level": "Intermediário",
+    "duration": 120,
+    "price": 29.9,
+    "thumbnail": "https://images.unsplash.com/photo-1592653936787-9dde100f3b1d?auto=format&fit=crop&w=800&q=80",
+    "youtubeId": "dQw4w9WgXcQ",
+    "description": "Aprenda a diagnosticar falhas, revisar e reparar motores elétricos industriais de forma segura.",
+    "progress": 0
+  },
+  {
+    "id": "c3",
+    "title": "Pneumática Industrial Avançada",
+    "instructor": "Carlos Oliveira",
+    "level": "Avançado",
+    "duration": 140,
+    "price": 79.9,
+    "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    "youtubeId": "M7lc1UVf-VE",
+    "description": "Domine sistemas pneumáticos, cilindros e controles de pressão para aplicações industriais avançadas.",
+    "progress": 0
+  },
+  {
+    "id": "c4",
+    "title": "Hidráulica Básica para Manutenção",
+    "instructor": "Ana Pereira",
+    "level": "Iniciante",
+    "duration": 110,
+    "price": 0,
+    "thumbnail": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+    "youtubeId": "9bZkp7q19f0",
+    "description": "Introdução aos sistemas hidráulicos, bombas e válvulas em manutenção industrial.",
+    "progress": 0
+  },
+  {
+    "id": "c5",
+    "title": "Automação Industrial com PLC",
+    "instructor": "Roberto Lima",
+    "level": "Intermediário",
+    "duration": 150,
+    "price": 49.9,
+    "thumbnail": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=800&q=80",
+    "youtubeId": "p4Z8d8WcKvA",
+    "description": "Programação e manutenção de controladores lógicos programáveis (PLC) em linhas de produção.",
+    "progress": 0
+  },
+  {
+    "id": "c6",
+    "title": "Segurança em Manutenção Elétrica",
+    "instructor": "Fernanda Costa",
+    "level": "Avançado",
+    "duration": 130,
+    "price": 69.9,
+    "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+    "youtubeId": "h4s0lUoVw5I",
+    "description": "Normas de segurança, procedimentos e equipamentos de proteção para manutenção elétrica.",
+    "progress": 0
+  }
+]

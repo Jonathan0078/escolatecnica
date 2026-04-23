@@ -1,329 +1,143 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KARTAL DISTRIBUIDORA - Displays de Qualidade</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manutenção Industrial - Plataforma de Cursos</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo-section">
-                <img src="logos/kartal logo.png" alt="KARTAL DISTRIBUIDORA" class="logo">
-                <div class="header-text">
-                    <h1>KARTAL DISTRIBUIDORA</h1>
-                    <p>O maior estoque e variedade de displays do Vale do Taquari</p>
-                </div>
-            </div>
-            <nav class="nav">
-                <button class="adm-btn" onclick="openAdmLogin()" title="Painel do Administrador">
-                    <i class="fas fa-cog"></i>
-                </button>
-                <button class="cart-btn" onclick="toggleCart()">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </button>
-            </nav>
-        </div>
+  <header class="topbar">
+    <div class="brand">Manutenção Industrial</div>
+    <nav class="nav-links">
+      <a href="#home">Início</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#planos">Planos</a>
+    </nav>
+    <div class="profile-menu">
+      <button id="profileButton" class="button button-secondary">Perfil</button>
+      <div id="profileDropdown" class="dropdown-content">
+        <a href="#perfil" id="profileLink">Meu Perfil</a>
+        <a href="#" id="logoutLink">Sair</a>
+      </div>
+    </div>
+    <button id="authButton" class="button button-primary">Entrar</button>
+  </header>
 
-        <!-- CAMPO DE PESQUISA DENTRO DO HEADER -->
-        <div class="search-header">
-            <div class="container">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="🔍 Pesquise seu modelo (iPhone, Android, etc)" onkeyup="filterProducts()">
-                </div>
-            </div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Aprenda Manutenção Industrial com vídeo aulas profissionais</h1>
+        <p>Plataforma completa para cursos técnicos. Acesse em qualquer dispositivo, acompanhe seu progresso e volte de onde parou.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" id="exploreCourses">Ver Cursos</button>
+          <button class="button button-secondary" id="seePlans">Planos</button>
         </div>
-    </header>
-
-    <!-- BANNER HERO -->
-    <section class="banner-hero">
-        <div class="banner-hero-content">
-            <div class="banner-hero-text">
-                <h2 class="banner-hero-title">Maior Estoque de Displays</h2>
-                <p class="banner-hero-subtitle">Displays de qualidade para todos os modelos de smartphones</p>
-                <div class="banner-hero-features">
-                    <span class="feature-item"><i class="fas fa-check-circle"></i> Entrega Rápida</span>
-                    <span class="feature-item"><i class="fas fa-check-circle"></i> Preços Competitivos</span>
-                    <span class="feature-item"><i class="fas fa-check-circle"></i> Garantia 100%</span>
-                </div>
-            </div>
-            <div class="banner-hero-visual">
-                <div class="banner-hero-decoration"></div>
-            </div>
+      </div>
+      <div class="hero-image">
+        <div class="video-box">
+          <div class="video-label">Curso em destaque</div>
+          <img src="https://images.unsplash.com/photo-1519222970733-f546218fa6d7?auto=format&fit=crop&w=800&q=80" alt="Manutenção Industrial" />
         </div>
+      </div>
     </section>
 
-    <!-- ABAS PRINCIPAIS -->
-    <section class="tabs-section" id="filtrosDisplays">
-        <div class="container">
-            <div class="tabs-container">
-                <button class="tab-btn active" onclick="switchTab('displays')">
-                    <i class="fas fa-mobile-alt"></i> DISPLAYS
-                </button>
-                <button class="tab-btn" onclick="switchTab('acessorios')">
-                    <i class="fas fa-box"></i> ACESSÓRIOS
-                </button>
-            </div>
-            <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterByBrand('todos')">Todos</button>
-                <button class="filter-btn" onclick="filterByBrand('APPLE')">Apple</button>
-                <button class="filter-btn" onclick="filterByBrand('SAMSUNG')">Samsung</button>
-                <button class="filter-btn" onclick="filterByBrand('XIAOMI')">Xiaomi</button>
-                <button class="filter-btn" onclick="filterByBrand('MOTOROLA')">Motorola</button>
-                <button class="filter-btn" onclick="filterByBrand('LG')">LG</button>
-                <button class="filter-btn" onclick="filterByBrand('INFINIX')">Infinix</button>
-                <button class="filter-btn" onclick="filterByBrand('REALME')">Realme</button>
-            </div>
+    <section class="section" id="cursos">
+      <div class="section-header">
+        <h2>Cursos Disponíveis</h2>
+        <p>Veja seus cursos, assista aos vídeos do YouTube e acompanhe seu progresso.</p>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Buscar cursos..." />
+          <select id="levelFilter">
+            <option value="">Todos os níveis</option>
+            <option value="Iniciante">Iniciante</option>
+            <option value="Intermediário">Intermediário</option>
+            <option value="Avançado">Avançado</option>
+          </select>
         </div>
+      </div>
+      <div id="coursesGrid" class="grid"></div>
     </section>
 
-    <!-- GRID DE CATEGORIAS DE ACESSÓRIOS -->
-    <section class="acessorios-showcase" id="acessoriosShowcase" style="display: none;">
-        <div class="container">
-            <h2 id="acessoriosTitle">Categorias de Acessórios</h2>
-            <div class="acessorios-grid" id="acessoriosGrid">
-                <!-- Categorias de acessórios serão carregadas aqui -->
-            </div>
+    <section class="section" id="planos">
+      <div class="section-header">
+        <h2>Planos de Assinatura</h2>
+        <p>Escolha o plano ideal para ter acesso completo aos cursos.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="plan-card plan-card-free">
+          <h3>Gratuito</h3>
+          <p class="plan-price">R$0 / mês</p>
+          <ul>
+            <li>Acesso a 3 cursos</li>
+            <li>Progresso salvo localmente</li>
+            <li>Suporte por email</li>
+          </ul>
+          <button class="button button-secondary" data-plan="free">Selecionar</button>
         </div>
+        <div class="plan-card plan-card-basic">
+          <div class="plan-badge">Mais Popular</div>
+          <h3>Básico</h3>
+          <p class="plan-price">R$29,90 / mês</p>
+          <ul>
+            <li>Acesso a todos os cursos</li>
+            <li>Certificado profissional</li>
+            <li>Vídeos em HD</li>
+          </ul>
+          <button class="button button-primary" data-plan="basic">Selecionar</button>
+        </div>
+        <div class="plan-card plan-card-premium">
+          <h3>Premium</h3>
+          <p class="plan-price">R$79,90 / mês</p>
+          <ul>
+            <li>Acesso vitalício</li>
+            <li>Suporte 24/7</li>
+            <li>Material extra e recursos</li>
+          </ul>
+          <button class="button button-secondary" data-plan="premium">Selecionar</button>
+        </div>
+      </div>
     </section>
 
-    <!-- PRODUTOS -->
-    <section class="produtos" id="produtosSection">
-        <div class="container">
-            <h2>Nossos Produtos</h2>
-            <div class="produtos-grid" id="produtosGrid">
-                <!-- Produtos serão carregados aqui pelo JavaScript -->
-            </div>
+    <section class="section section-dark" id="perfil">
+      <div class="section-header">
+        <h2>Meu Perfil</h2>
+        <p>Dados de usuário, plano atual e progresso dos cursos.</p>
+      </div>
+      <div class="profile-grid">
+        <div class="profile-card">
+          <h3>Bem-vindo, <span id="profileName">Visitante</span></h3>
+          <p>Plano atual: <span id="currentPlan">Gratuito</span></p>
+          <p>Progresso salvo em seu navegador.</p>
+          <button class="button button-primary" id="logoutButton">Sair</button>
         </div>
+        <div class="profile-card profile-progress">
+          <h3>Progresso dos cursos</h3>
+          <ul id="progressList" class="progress-list"></ul>
+        </div>
+        <div class="profile-card" id="premiumContent" style="display: none;">
+          <h3>Material Extra (Premium)</h3>
+          <p>Acesse recursos adicionais para aprofundar seu conhecimento.</p>
+          <ul>
+            <li>E-books sobre manutenção avançada</li>
+            <li>Templates de checklists de inspeção</li>
+            <li>Vídeos bônus de casos reais</li>
+            <li>Suporte prioritário por email</li>
+          </ul>
+          <button class="button button-primary">Baixar Materiais</button>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- VALORES ANTES DO FOOTER -->
-    <div class="valores-header">
-        <div class="container valores-container">
-            <div class="valor-item">
-                <i class="fas fa-check-circle"></i>
-                <h3>FÉ</h3>
-                <p>Alicerce da nossa empresa</p>
-            </div>
-            <div class="valor-item">
-                <i class="fas fa-handshake"></i>
-                <h3>LEALDADE</h3>
-                <p>Nossa prática diária</p>
-            </div>
-            <div class="valor-item">
-                <i class="fas fa-gavel"></i>
-                <h3>VERDADE</h3>
-                <p>Inegociável em tudo</p>
-            </div>
-        </div>
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">×</button>
+      <h3 id="modalTitle">Entrar</h3>
+      <div id="modalBody"></div>
     </div>
+  </div>
 
-    <!-- CARRINHO LATERAL -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h2>Seu Carrinho</h2>
-            <button class="close-btn" onclick="toggleCart()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <p class="empty-cart">Carrinho vazio</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <strong>Total:</strong>
-                <span id="cartTotal">R$ 0,00</span>
-            </div>
-            <button class="checkout-btn" onclick="checkout()">
-                <i class="fas fa-check"></i> Finalizar Compra
-            </button>
-            <button class="clear-btn" onclick="clearCart()">
-                <i class="fas fa-trash"></i> Limpar Carrinho
-            </button>
-        </div>
-    </div>
-
-    <!-- OVERLAY -->
-    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
-
-    <!-- MODAL DE LOGIN ADM -->
-    <div class="adm-login-modal" id="admLoginModal">
-        <div class="adm-login-container">
-            <div class="adm-login-header">
-                <h2>Painel do Administrador</h2>
-                <button class="close-modal-btn" onclick="closeAdmLogin()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="adm-login-body">
-                <p>Digite a senha para acessar o painel</p>
-                <input type="password" id="admPassword" placeholder="Senha" onkeypress="if(event.key==='Enter') authenticateAdm()">
-                <button class="adm-login-submit" onclick="authenticateAdm()">
-                    <i class="fas fa-key"></i> Entrar
-                </button>
-                <p id="admErrorMsg" style="color: red; margin-top: 10px; display: none;"></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- PAINEL DE ADMINISTRAÇÃO -->
-    <div class="adm-panel-modal" id="admPanelModal">
-        <div class="adm-panel-container">
-            <div class="adm-panel-header">
-                <h2><i class="fas fa-cog"></i> Painel de Administração</h2>
-                <button class="close-modal-btn" onclick="closeAdmPanel()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-
-            <div class="adm-panel-tabs">
-                <button class="adm-tab-btn active" onclick="switchAdmTab('produtos')">
-                    <i class="fas fa-list"></i> Gerenciar Produtos
-                </button>
-                <button class="adm-tab-btn" onclick="switchAdmTab('adicionar')">
-                    <i class="fas fa-plus-circle"></i> Adicionar Produto
-                </button>
-                <button class="adm-tab-btn" onclick="switchAdmTab('precos')">
-                    <i class="fas fa-tag"></i> Alterar Preços
-                </button>
-                <button class="adm-tab-btn" onclick="switchAdmTab('sair')">
-                    <i class="fas fa-sign-out-alt"></i> Sair
-                </button>
-            </div>
-
-            <!-- ABA: GERENCIAR PRODUTOS -->
-            <div class="adm-tab-content active" id="produtosTab">
-                <h3>Gerenciar Produtos</h3>
-                
-                <!-- Filtros por tipo de produto -->
-                <div class="adm-tipo-filtro">
-                    <button class="adm-tipo-btn active" onclick="filtrarPorTipoProduto('displays')">
-                        <i class="fas fa-mobile-alt"></i> DISPLAYS
-                    </button>
-                    <button class="adm-tipo-btn" onclick="filtrarPorTipoProduto('acessorios')">
-                        <i class="fas fa-box"></i> ACESSÓRIOS
-                    </button>
-                </div>
-                
-                <div class="adm-search-bar">
-                    <input type="text" id="admSearchProduto" placeholder="Pesquise um produto..." onkeyup="filtrarProdutosAdm()">
-                    <select id="admFilterMarca">
-                        <option value="">Todos os Fornecedores</option>
-                        <option value="APPLE">Apple</option>
-                        <option value="SAMSUNG">Samsung</option>
-                        <option value="XIAOMI">Xiaomi</option>
-                        <option value="MOTOROLA">Motorola</option>
-                        <option value="LG">LG</option>
-                        <option value="INFINIX">Infinix</option>
-                        <option value="REALME">Realme</option>
-                    </select>
-                </div>
-                <div class="adm-produtos-list" id="admProdutosList">
-                    <!-- Produtos serão carregados aqui -->
-                </div>
-            </div>
-
-            <!-- ABA: ADICIONAR PRODUTO -->
-            <div class="adm-tab-content" id="adicionarTab">
-                <h3>Adicionar Novo Produto</h3>
-                <form class="adm-form" onsubmit="adicionarProdutoAdm(event)">
-                    <div class="form-group">
-                        <label>Tipo de Produto:</label>
-                        <select id="novoTipoProduto" onchange="atualizarCategorias()" required>
-                            <option value="">Selecione o tipo</option>
-                            <option value="display">Display</option>
-                            <option value="acessorio">Acessório</option>
-                        </select>
-                    </div>
-                    <div class="form-group" id="grupoMarca" style="display: none;">
-                        <label>Marca:</label>
-                        <select id="novaMarca">
-                            <option value="">Selecione a marca</option>
-                            <option value="APPLE">Apple</option>
-                            <option value="SAMSUNG">Samsung</option>
-                            <option value="XIAOMI">Xiaomi</option>
-                            <option value="MOTOROLA">Motorola</option>
-                            <option value="LG">LG</option>
-                            <option value="INFINIX">Infinix</option>
-                            <option value="REALME">Realme</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Nome do Produto:</label>
-                        <input type="text" id="novoNome" placeholder="Ex: IPHONE 15 OLED" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Categoria:</label>
-                        <select id="novaCategoria" required>
-                            <option value="">Selecione a categoria</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Preço (R$):</label>
-                        <input type="number" id="novoPreco" placeholder="Ex: 500.00" step="0.01" min="0" required>
-                    </div>
-                    <button type="submit" class="adm-btn-submit">
-                        <i class="fas fa-save"></i> Adicionar Produto
-                    </button>
-                </form>
-            </div>
-
-            <!-- ABA: ALTERAR PREÇOS -->
-            <div class="adm-tab-content" id="precosTab">
-                <h3>Alterar Preços</h3>
-                <div class="adm-search-bar">
-                    <input type="text" id="admSearchPreco" placeholder="Pesquise um produto..." onkeyup="filtrarProdutosPreco()">
-                    <select id="admFilterMarcaPreco" onchange="filtrarProdutosPreco()">
-                        <option value="">Todos os Fornecedores</option>
-                        <option value="APPLE">Apple</option>
-                        <option value="SAMSUNG">Samsung</option>
-                        <option value="XIAOMI">Xiaomi</option>
-                        <option value="MOTOROLA">Motorola</option>
-                        <option value="LG">LG</option>
-                        <option value="INFINIX">Infinix</option>
-                        <option value="REALME">Realme</option>
-                    </select>
-                </div>
-                <div class="adm-precos-list" id="admPrecosList">
-                    <!-- Produtos para alteração de preço serão carregados aqui -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- OVERLAY DOS MODALS -->
-    <div class="overlay" id="admOverlay" onclick="closeAdmLogin(); closeAdmPanel();"></div>
-
-    <!-- OVERLAY -->
-    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>KARTAL DISTRIBUIDORA</h3>
-                    <p>O maior estoque e variedade de marcas do Vale do Taquari e Rio Pardo</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Localização</h3>
-                    <p>📍 Lajeado | Bento Gonçalves | Santa Cruz do Sul</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Nossa Missão</h3>
-                    <p>Garantir que sua assistência nunca pare por falta de peças</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 KARTAL DISTRIBUIDORA - Todos os direitos reservados</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
